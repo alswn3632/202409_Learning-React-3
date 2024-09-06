@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import StoreList from './components/StoreList';
+import UserList from './components/UserList';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <UserList />
+        <br />
+        <hr />
+        {/* 맛집 리스트 추가 */}
+        {/* 월미당(쌀국수집) */}
+        <StoreList />
     </div>
   );
 }
