@@ -12,7 +12,8 @@ const StoreList = () => {
         {
             id : 1,
             storeName : '월미당',
-            storeItem : '쌀국수'
+            storeItem : '쌀국수',
+            active : true
         }
     ]);
 
@@ -47,10 +48,22 @@ const StoreList = () => {
         setStores(stores.filter(store => store.id !== id));
     }
 
+    const onToggle = (id)=>{        
+        setStores(
+            stores.map(store =>(
+                store.id === id? 
+                {
+                    ...store,
+                    active : !store.active
+                }
+                : store
+            ))
+        );
+    }
 
     return (
         <div className='storeList'>
-            <CreateStore storeName={storeName} storeItem={storeItem} onChange={onChange} onCreate={onCreate}/>
+            <CreateStore storeName={storeName} storeItem={storeItem} onToggle={onToggle} onChange={onChange} onCreate={onCreate}/>
 
             {
                 stores.map(s=>(

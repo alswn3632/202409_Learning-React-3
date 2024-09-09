@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import User from './User';
 import { useRef } from 'react';
 import CreateUser from './CreateUser';
 import { useState } from 'react';
+import './createUser.css';
+
 
 const UserList = () => {
     // array 랜더링 시 key의 존재 유무에 따라 업데이트,삭제,추가 시 효율적으로 랜더링 됨.
@@ -67,12 +69,11 @@ const UserList = () => {
         email : ''
     }); // username, email 받는 객체
 
-
     // const username = inputs.username;
     // const email = inputs.email;
 
     // 구조 분해 할당 : 객체의 구조를 분해하여 변수에 할당하는 방법
-    const {username,email} = inputs;
+    const {username, email} = inputs;
 
     const onChange = (e)=>{
         const {name, value} = e.target;
@@ -107,7 +108,6 @@ const UserList = () => {
         // filter는 조건에 맞는 값만 배열로 리턴 (반대로 특정 번호가 아닌것을 조건으로 주면 그 요소만 제거해주겠지?)
         // => user.id가 일치하지 않는 요소만 추출하여 새로운 배열로 리턴
         setUsers(users.filter(user => user.id !== id));
-
     }
 
     const onToggle = (id)=>{        
@@ -123,6 +123,14 @@ const UserList = () => {
         );
     }
 
+    const countActiveUser = (users) =>{
+        //user.active가 true인 사용자를 에서서 리턴
+        console.log("count")
+        return users.filter(user => user.active).length;
+    }
+
+    const count = useMemo(()=> countActiveUser(users),[users]);
+
     return (
         <div className='userList'>
             {/* 컴포넌트에서 데이터를 하위 컴포넌트에게 전달하는 방법 = props */}
@@ -134,6 +142,9 @@ const UserList = () => {
                     <User user={u} onRemove={onRemove} onToggle={onToggle} key={u.id}/>
                 ))
             }
+            <h3 className='h3Count'>📌 완료 사용자 수 : {count}</h3>
+
+            
             
             {/* key값으로 인덱스를 사용할 때 */}
             {/* {

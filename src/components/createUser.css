@@ -1,0 +1,66 @@
+
+.createName{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.createName>.form>.row>.col>.input{
+    width: 300px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    outline: none;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: large;
+    
+}
+
+.createName>.btnSub{
+    width: 100px;
+    height: 110px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+
+}
+
+.user>h3{
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 410px;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+}
+
+
+.user .btnDel{
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: bold;
+
+}
+
+.user>h3>div>.spanEmail{
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.userList{
+    background-color: rgb(235, 235, 235);
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-top: 30px;
+}
+
+.userList>.h3Count{
+    margin-top: 50px;
+}
